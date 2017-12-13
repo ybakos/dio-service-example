@@ -1,0 +1,12 @@
+{
+  "name": "dio-service-scratch",
+  "version": "0.0.1",
+  "description": "DiO web service for sensor readings.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "author": "Yong Bakos",
+  "license": "ISC"
+}
