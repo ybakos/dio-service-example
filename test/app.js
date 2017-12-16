@@ -18,4 +18,10 @@ describe("Server", function() {
       .expect(200, done);
   });
 
+  it("Responds to /readings", function(done) {
+    request(app)
+      .get('/readings')
+      .expect(200, done);
+  });
+
 });
