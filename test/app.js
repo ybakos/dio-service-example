@@ -34,6 +34,19 @@ describe("Server", function() {
         .post('/readings')
         .expect(200, done);
     });
+    it("Responds with the body of the POST data", function(done) {
+      let postData = {
+        sensorId: 'FAKE_SENSOR_ID',
+        attribute: 'FAKE_ATTRIBUTE',
+        value: 'FAKE_VALUE'
+      };
+      request(app)
+        .post('/readings')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send(postData)
+        .expect(200, JSON.stringify(postData), done);
+    });
   });
 
 });
