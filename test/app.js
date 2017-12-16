@@ -38,12 +38,12 @@ describe("Server", function() {
         .accept('json')
         .send(postData)
         .end(function() {
-          agent.get('/readings)')
+          agent.get('/readings')
             .accept('json')
             .expect(200)
             .end(function(err, res) {
-              // TODO
-              done();
+              expect(res.body).to.equal('TODO');
+              done(err);
             });
         });
     });
