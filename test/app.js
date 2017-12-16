@@ -34,8 +34,8 @@ describe("Server", function() {
     it("Displays a reading that was posted", function(done) {
       const agent = request(app);
       agent.post('/readings')
-        .set('Content-Type', 'application/json')
-        .set('Accept', 'application/json')
+        .type('json')
+        .accept('json')
         .send(postData)
         .end(function() {
           agent.get('/readings)')
@@ -58,8 +58,8 @@ describe("Server", function() {
     it("Responds with the body of the POST data", function(done) {
       request(app)
         .post('/readings')
-        .set('Content-Type', 'application/json')
-        .set('Accept', 'application/json')
+        .type('json')
+        .accept('json')
         .send(postData)
         .expect(200, postData, done);
     });
