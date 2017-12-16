@@ -1,8 +1,13 @@
-let request = require('supertest');
+const request = require('supertest');
 
 describe("Server", function() {
 
   var app;
+  const postData = {
+    sensorId: 'FAKE_SENSOR_ID',
+    attribute: 'FAKE_ATTRIBUTE',
+    value: 'FAKE_VALUE'
+  };
 
   beforeEach(function() {
     app = require('../app');
@@ -26,6 +31,22 @@ describe("Server", function() {
         .get('/readings')
         .expect(200, done);
     });
+    it("Displays a reading that was posted", function(done) {
+      const agent = request(app);
+      agent.post('/readings')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send(postData)
+        .end(function() {
+          agent.get('/readings)')
+            .accept('json')
+            .expect(200)
+            .end(function(err, res) {
+              // TODO
+              done();
+            });
+        });
+    });
   });
 
   describe("POST /readings", function() {
@@ -35,11 +56,6 @@ describe("Server", function() {
         .expect(200, done);
     });
     it("Responds with the body of the POST data", function(done) {
-      let postData = {
-        sensorId: 'FAKE_SENSOR_ID',
-        attribute: 'FAKE_ATTRIBUTE',
-        value: 'FAKE_VALUE'
-      };
       request(app)
         .post('/readings')
         .set('Content-Type', 'application/json')
