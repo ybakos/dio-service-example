@@ -7,6 +7,6 @@ app.get('/readings', (req, res) => {
   res.status(200).send();
 });
 
-let server = app.listen(3000);
+let server = app.listen(process.env.PORT);
 
 module.exports = server;
