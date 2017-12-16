@@ -20,10 +20,12 @@ describe("Server", function() {
     });
   });
 
-  it("Responds to /readings", function(done) {
-    request(app)
-      .get('/readings')
-      .expect(200, done);
+  describe("GET /readings", function() {
+    it("Responds with 200 OK", function(done) {
+      request(app)
+        .get('/readings')
+        .expect(200, done);
+    });
   });
 
 });
