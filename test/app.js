@@ -28,4 +28,12 @@ describe("Server", function() {
     });
   });
 
+  describe("POST /readings", function() {
+    it("Responds with 200 OK", function(done) {
+      request(app)
+        .post('/readings')
+        .expect(200, done);
+    });
+  });
+
 });
