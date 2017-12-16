@@ -4,7 +4,8 @@
   "description": "DiO web service for sensor readings.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config app.js"
+    "dev": "nodemon -r dotenv/config app.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,8 @@
     "express": "^4.16.2"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0"
+    "chai": "^4.1.2",
+    "dotenv": "^4.0.0",
+    "mocha": "^4.0.1"
   }
 }
