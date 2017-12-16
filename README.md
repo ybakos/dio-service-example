@@ -6,3 +6,9 @@ Environment variables:
 
 * `PORT`
 * `DATABASE_URL`
+
+## Testing
+
+Using [mocha](https://mochajs.org), [chai](http://chaijs.com/), and [supertest](https://www.npmjs.com/package/supertest).
+
+(c) 2017 Yong Joseph Bakos. All rights reserved.
