@@ -9,12 +9,15 @@ describe("Server", function() {
     value: 'FAKE_VALUE'
   };
 
+  // Create a new server for each test.
+  // https://glebbahmutov.com/blog/how-to-correctly-unit-test-express-server/
   beforeEach(function() {
+    delete require.cache[require.resolve('../app')];
     app = require('../app');
   });
 
-  afterEach(function() {
-    app.close();
+  afterEach(function(done) {
+    app.close(done);
   })
 
   describe("GET /", function() {
