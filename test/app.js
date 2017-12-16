@@ -3,7 +3,7 @@ const request = require('supertest');
 describe("Server", function() {
 
   var app;
-  const postData = {
+  const fakeReading = {
     sensorId: 'FAKE_SENSOR_ID',
     attribute: 'FAKE_ATTRIBUTE',
     value: 'FAKE_VALUE'
@@ -36,13 +36,13 @@ describe("Server", function() {
       agent.post('/readings')
         .type('json')
         .accept('json')
-        .send(postData)
+        .send(fakeReading)
         .end(function() {
           agent.get('/readings')
             .accept('json')
             .expect(200)
             .end(function(err, res) {
-              expect(res.body).to.equal('TODO');
+              expect(res.body).to.be.an('array').that.deep.includes(fakeReading);
               done(err);
             });
         });
@@ -60,8 +60,8 @@ describe("Server", function() {
         .post('/readings')
         .type('json')
         .accept('json')
-        .send(postData)
-        .expect(200, postData, done);
+        .send(fakeReading)
+        .expect(200, fakeReading, done);
     });
   });
 
