@@ -61,7 +61,7 @@ describe("Server", function() {
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json')
         .send(postData)
-        .expect(200, JSON.stringify(postData), done);
+        .expect(200, postData, done);
     });
   });
 
