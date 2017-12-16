@@ -12,10 +12,12 @@ describe("Server", function() {
     app.close();
   })
 
-  it("Responds to /", function(done) {
-    request(app)
-      .get('/')
-      .expect(200, done);
+  describe("GET /", function() {
+    it("Responds with an empty body", function(done) {
+      request(app)
+        .get('/')
+        .expect(200, '', done);
+    });
   });
 
   it("Responds to /readings", function(done) {
