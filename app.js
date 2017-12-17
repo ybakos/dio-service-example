@@ -1,13 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const knex = require('knex')(require('./knexfile'));
 
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.status(200).send());
 
 app.get('/readings', (req, res) => {
-  res.status(200).send();
+  knex.select().from('readings').then(function(result) {
+    res.json(result);
+  });
 });
 
 app.post('/readings', (req, res) => {
