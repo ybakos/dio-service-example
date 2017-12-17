@@ -8,6 +8,15 @@ Environment variables:
 * `PORT`
 * `DATABASE_URL`
 
+Database stuff:
+Using knex. Relies on dotenv in development and test.
+
+```
+NODE_ENV=development node_modules/.bin/knex migrate:latest
+NODE_ENV=test node_modules/.bin/knex migrate:latest
+```
+
+
 ## Dependencies
 
 ### Production
