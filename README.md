@@ -4,6 +4,7 @@ DiO is an aquaponics management system built for [Volcano Veggies](http://www.vo
 
 Environment variables:
 
+* `NODE_ENV`
 * `PORT`
 * `DATABASE_URL`
 
