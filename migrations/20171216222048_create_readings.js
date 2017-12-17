@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('readings', function(t) {
+  return knex.schema.createTableIfNotExists('readings', function(t) {
     t.increments();
     t.integer('sensorId').notNullable();
     t.string('attribute').notNullable();
